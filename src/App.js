@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { IoIosAdd, IoIosList } from 'react-icons/io';
+import BookForm from './components/BookForm';
+import BookList from './components/BookList';
+import './styles.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <nav className="navbar">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link to="/" className="nav-link">
+                <IoIosAdd className="nav-icon" />
+                Add Book
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/list" className="nav-link">
+                <IoIosList className="nav-icon" />
+                Book List
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<BookForm />} />
+            <Route path="/list" element={<BookList />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
