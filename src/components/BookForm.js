@@ -19,7 +19,6 @@ const BookForm = () => {
   };
 
   const handleSubmit = async (event) => {
-    console.log(process.env);
     event.preventDefault();
     const bookData = { bookname, author, price };
     try {
