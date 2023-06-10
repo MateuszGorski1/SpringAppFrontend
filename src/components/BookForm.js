@@ -22,7 +22,7 @@ const BookForm = () => {
     event.preventDefault();
     const bookData = { bookname, author, price };
     try {
-      const response = await fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/book`, {
+      const response = await fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/api/book`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

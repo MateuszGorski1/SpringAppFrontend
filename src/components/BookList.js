@@ -16,7 +16,7 @@ const BookList = () => {
 
   const fetchBooks = async () => {
     try {
-      const response = await fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/books`);
+      const response = await fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/api/books`);
       const data = await response.json();
       setBooks(data);
     } catch (error) {
@@ -39,7 +39,7 @@ const BookList = () => {
 
   const handleSave = async () => {
     try {
-      const response = await fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/book`, {
+      const response = await fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/api/book`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ const BookList = () => {
 
   const handleDelete = async (bookId) => {
     try {
-      const response = await fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/book/${bookId}`, {
+      const response = await fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/api/book/${bookId}`, {
         method: 'DELETE',
       });
       if (response.ok) {
