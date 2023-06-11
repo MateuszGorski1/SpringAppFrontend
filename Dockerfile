@@ -1,7 +1,13 @@
+FROM node:16-alpine AS build
+WORKDIR /app
+COPY package.json ./
+RUN yarn  install
+COPY . /app
+RUN yarn build
+
 FROM node:16-alpine
 WORKDIR /app
-COPY . .
-RUN npm ci
-RUN npm run build
+RUN npm install -g webserver.local
+COPY --from=build /app/build ./build
 EXPOSE 3000
-CMD [ "npm", "start" ]
+CMD webserver.local -d ./build
