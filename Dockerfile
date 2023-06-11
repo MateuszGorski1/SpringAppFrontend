@@ -7,7 +7,7 @@ RUN yarn  install
 COPY . /app
 RUN yarn build
 
-FROM node:12-alpine
+FROM node:16-alpine
 WORKDIR /app
 RUN npm install -g webserver.local
 COPY --from=build /app/build ./build
