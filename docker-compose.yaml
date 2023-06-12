@@ -6,6 +6,7 @@ services:
       context: .
       args:
         REACT_APP_HOST: ${REACT_APP_HOST}
+    image: destinytm/springapp-frontend
     env_file:
       - .env
     ports:
