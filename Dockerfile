@@ -3,8 +3,6 @@ WORKDIR /app
 COPY package.json ./
 RUN yarn install
 COPY . /app
-ARG REACT_APP_HOST
-ENV REACT_APP_HOST=$REACT_APP_HOST
 RUN yarn build
 
 FROM nginx:1.19.0-alpine
