@@ -16,6 +16,8 @@ const BookList = () => {
 
   const fetchBooks = async () => {
     try {
+      console.log(process.env.REACT_APP_HOST)
+      console.log(process.env)
       const response = await fetch(`http://${process.env.REACT_APP_HOST}/api/books`);
       const data = await response.json();
       setBooks(data);
